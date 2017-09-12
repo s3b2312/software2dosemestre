@@ -1,0 +1,59 @@
+---
+en:
+  clearance:
+    models:
+      clearance_mailer:
+        change_password: cambia tu password
+  clearance_mailer:
+    change_password:
+      closing: Si uusted no solicito esto, ignore este email. Su password no sera
+        cambiada.
+      link_text: Cambiar mi password
+      opening: "Someone, hopefully you, requested we send you a link to change
+        your password:"
+  flashes:
+    failure_after_create: Correo o password equivocado.
+    failure_after_update: Password no puede estar en blanco.
+    failure_when_forbidden: Please double check the URL or try submitting
+      the form again.
+    failure_when_not_signed_in: Por favor para continuar, inicie sesion .
+  helpers:
+    label:
+      password:
+        email: Direccion de correo
+      password_reset:
+        password: Escriba password
+    submit:
+      password:
+        submit: Resetear password
+      password_reset:
+        submit: guardar password
+      session:
+        submit: Entrar
+      user:
+        create: Crear
+  layouts:
+    application:
+      sign_in: Entrar
+      sign_out: Cerrar sesion
+  passwords:
+    create:
+      description: You will receive an email within the next few minutes. It
+        contains instructions for changing your password.
+    edit:
+      description: Your password has been reset. Choose a new password below.
+      title: Change your password
+    new:
+      description: Va a ser enviado un link para reestablecer su password a su correo, por favor ingrese
+        su direccion de correo.
+      title: Resetear tu password
+  sessions:
+    form:
+      forgot_password: Olvido su password?
+      sign_up: Crear usuario
+    new:
+      title: Entrar
+  users:
+    new:
+      sign_in: Entrar
+      title: Crear usuario
