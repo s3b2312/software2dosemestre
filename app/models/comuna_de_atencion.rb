@@ -1,0 +1,2 @@
+class ComunaDeAtencion < ApplicationRecord
+end

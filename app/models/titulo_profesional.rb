@@ -1,0 +1,2 @@
+class TituloProfesional < ApplicationRecord
+end

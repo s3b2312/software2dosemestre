@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Rut_profesional: 1
+  Nombre: MyString
+  Apellido: MyString
+  Fecha_de_nacimiento: MyString
+
+two:
+  Rut_profesional: 1
+  Nombre: MyString
+  Apellido: MyString
+  Fecha_de_nacimiento: MyString

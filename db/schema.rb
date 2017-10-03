@@ -10,10 +10,84 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170910195631) do
+ActiveRecord::Schema.define(version: 20171003022214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "administrador_tables", force: :cascade do |t|
+    t.integer "Rut_id"
+    t.string "Nombre"
+    t.string "Apellido"
+    t.date "Fecha_de_nacimiento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "administradors", force: :cascade do |t|
+    t.integer "Rut_id"
+    t.string "Nombre"
+    t.string "Apellido"
+    t.date "Fecha_de_nacimiento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "atencions", force: :cascade do |t|
+    t.integer "Atencion_id"
+    t.integer "Hora_de_atencion"
+    t.string "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clientes", force: :cascade do |t|
+    t.integer "Rut_cliente"
+    t.string "Nombre"
+    t.string "Apellido"
+    t.date "Fecha_de_nacimiento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comuna_de_atencions", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cuenta_clientes", force: :cascade do |t|
+    t.integer "Rut_cliente"
+    t.string "Nombre"
+    t.string "Apellido"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cuenta_profesionals", force: :cascade do |t|
+    t.integer "Rut_profesional"
+    t.string "Nombre"
+    t.string "Apellido"
+    t.date "Fecha_de_nacimiento"
+    t.string "Titulo_profesional"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profesionals", force: :cascade do |t|
+    t.integer "Rut_profesional"
+    t.string "Nombre"
+    t.string "Apellido"
+    t.string "Fecha_de_nacimiento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "titulo_profesionals", force: :cascade do |t|
+    t.string "Nombre_titulo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
