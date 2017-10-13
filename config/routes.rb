@@ -1,18 +1,39 @@
 Rails.application.routes.draw do
-  get 'principal/index'
 
-  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
 
-  resources :users, controller: "clearance/users", only: [:create] do
-    resource :password,
-      controller: "clearance/passwords",
-      only: [:create, :edit, :update]
-  end
 
-  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
-  get "/sign_up" => "clearance/users#new", as: "sign_up"
-root to: "principal#index"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'cliente/index'
+
+  get 'especialistas/index'
+
+  get 'administrador/indexprincipal'
+  resources :administrador
+
+
+
+  devise_for :users, :controllers => { registrations: 'registrations' }
+ 
+  
+  get 'ingresar/index'
+
+  get 'historia/index'
+
+ # get 'principal/index'
+
+  root 'principal#index'
+
+  resources :busy_times
+  resources :hours
+  resources :schedules
+  
+   #los resources contienen:
+  # get "/hours"		index
+  # post "/hours"		create
+  # delete "/hours"		delete
+  # get "/hours/:id"	show
+  # get "/hours/new"	new
+  # get "/hours/:id/edit"	edit
+  # patch "/hours/:id"	update
+  # put "/hours/:id"	update
+
 end

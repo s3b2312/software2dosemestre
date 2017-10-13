@@ -10,94 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003022214) do
+ActiveRecord::Schema.define(version: 20170914142322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "administrador_tables", force: :cascade do |t|
-    t.integer "Rut_id"
-    t.string "Nombre"
-    t.string "Apellido"
-    t.date "Fecha_de_nacimiento"
+  create_table "busy_times", force: :cascade do |t|
+    t.string "identificador"
+    t.string "tiempo_ini"
+    t.string "tiempo_ter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "administradors", force: :cascade do |t|
-    t.integer "Rut_id"
-    t.string "Nombre"
-    t.string "Apellido"
-    t.date "Fecha_de_nacimiento"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "atencions", force: :cascade do |t|
-    t.integer "Atencion_id"
-    t.integer "Hora_de_atencion"
-    t.string "descripcion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "clientes", force: :cascade do |t|
-    t.integer "Rut_cliente"
-    t.string "Nombre"
-    t.string "Apellido"
-    t.date "Fecha_de_nacimiento"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comuna_de_atencions", force: :cascade do |t|
+  create_table "comunas", force: :cascade do |t|
     t.string "nombre"
+  end
+
+  create_table "hours", force: :cascade do |t|
+    t.string "identificador"
+    t.string "tiempo_ini"
+    t.string "tiempo_ter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "cuenta_clientes", force: :cascade do |t|
-    t.integer "Rut_cliente"
-    t.string "Nombre"
-    t.string "Apellido"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cuenta_profesionals", force: :cascade do |t|
-    t.integer "Rut_profesional"
-    t.string "Nombre"
-    t.string "Apellido"
-    t.date "Fecha_de_nacimiento"
-    t.string "Titulo_profesional"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "profesionals", force: :cascade do |t|
-    t.integer "Rut_profesional"
-    t.string "Nombre"
-    t.string "Apellido"
-    t.string "Fecha_de_nacimiento"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "titulo_profesionals", force: :cascade do |t|
-    t.string "Nombre_titulo"
+  create_table "schedules", force: :cascade do |t|
+    t.integer "numero"
+    t.string "rut_esp"
+    t.string "hora"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "rut"
+    t.string "nombre"
+    t.string "permiso"
+    t.text "calle"
+    t.integer "numero_contacto"
+    t.integer "horario"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", null: false
-    t.string "encrypted_password", limit: 128, null: false
-    t.string "confirmation_token", limit: 128
-    t.string "remember_token", limit: 128, null: false
-    t.index ["email"], name: "index_users_on_email"
-    t.index ["remember_token"], name: "index_users_on_remember_token"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
